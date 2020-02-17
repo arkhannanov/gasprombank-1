@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import './App.scss';
+import Module from "./components/Module/Module";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = [
+            {
+                "header": "Заголовок 1",
+                "options": ["элемент списка 1", "элемент списка 2", "элемент списка 3", "элемент списка 4", "элемент списка 5" ],
+                "text": "какой-то текст 1 текст какой-то 1 какой-то какой-то текст 1 текст какой-то 1 какой-то какой-то текст 1 текст какой-то 1 какой-то какой-то текст 1 текст какой-то 1 какой-то"
+            },
+            {
+                "header": "Заголовок 2",
+                "options": ["элемент списка 1", "элемент списка 2", "элемент списка 3", "элемент списка 4", "элемент списка 5" ],
+                "text": "какой-то текст 2 текст какой-то 2 какой-то"
+            },
+            {
+                "header": "Заголовок 3",
+                "options": ["элемент списка 1", "элемент списка 2", "элемент списка 3"],
+                "text": "какой-то текст 3 текст какой-то 3 какой-то какой-то текст 3 текст какой-то 3 какой-то какой-то текст 3 текст какой-то 3 какой-то "
+            },
+            {
+                "header": "Заголовок 4",
+                "options": ["элемент списка 1", "элемент списка 2", "элемент списка 3", "элемент списка 4"],
+                "text": "какой-то текст 4 текст какой-то 4 какой-то какой-то текст 4 текст какой-то 4 какой-то какой-то текст 4 текст какой-то 4 какой-то какой-то текст 4 текст какой-то 4 какой-то"
+            },
+            {
+                "header": "Заголовок 5",
+                "options": ["элемент списка 1", "элемент списка 2"],
+                "text": "какой-то текст 5 текст какой-то 5 какой-то"
+            },
+            {
+                "header": "Заголовок 6",
+                "options": ["элемент списка 1", "элемент списка 2", "элемент списка 3", "элемент списка 4", "элемент списка 5" ],
+                "text": "какой-то текст 6 текст какой-то 6 какой-то какой-то текст 6 текст какой-то 6 какой-то какой-то текст 6 текст какой-то 6 какой-то"
+            }
+        ]
+    }
+
+    render() {
+        return (
+            <div className="modules-container">
+                {this.state.map ((item,index) => <Module key={index} header={item.header} options={item.options} text={item.text}/>)}
+            </div>
+        )
+    }
 }
+
 
 export default App;
